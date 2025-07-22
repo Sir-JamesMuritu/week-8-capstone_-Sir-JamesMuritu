@@ -75,35 +75,30 @@ const Navigation = () => {
 
   return (
     <div
-      className={`${
-        mobileMenu
-          ? " bg-[#FF4800] fixed top-0 left-0 right-0 w-full h-[70px] "
-          : "bg-[#0F172A] backdrop-blur-lg"
-      } fixed top-0 left-0 w-full h-[80px]  p-5 text-[#D8E2F2] text-center z-50 transition-all ease-in duration-300 flex justify-between items-center`}
+      className={`fixed top-0 left-0 w-full h-[80px] p-5 text-black text-center z-50 transition-all ease-in duration-300 flex justify-between items-center shadow-md bg-white`}
     >
+      <div className="absolute top-0 left-0 w-full h-2 bg-[#FFB900] z-50"></div>
       <ContentWrapper>
-        <div className="flex justify-between items-center text-[#D8E2F2]">
+        <div className="flex justify-between items-center text-black">
           <div className="flex justify-between items-center w-full ">
             <div className="flex gap-10">
               <div>
                 <button
-                  className={`rounded-lg flex text-[#d8e2f2c3] hover:text-[#FFF]`}
+                  className={`rounded-lg flex text-black hover:text-[#FFB900]`}
                   onClick={openMobileMenu}
                 >
                   {mobileMenu ? (
                     <AiOutlineClose
-                      color="white"
+                      color="#FFB900"
                       size={26}
-                      className="text-[#d8e2f2c3] hover:text-[#FFF]"
+                      className="text-black hover:text-[#FFB900]"
                     />
                   ) : (
-                    <>
                       <HiOutlineMenuAlt1
-                        color="white"
+                      color="#FFB900"
                         size={26}
-                        className="text-[#d8e2f2c3] hover:text-[#FFF]"
+                      className="text-black hover:text-[#FFB900]"
                       />
-                    </>
                   )}
                 </button>
               </div>
@@ -111,24 +106,24 @@ const Navigation = () => {
                 <Link to="/" className="flex items-center">
                   <AiOutlineHome
                     size={26}
-                    className="text-[#d8e2f2c3] hover:text-[#FFF]"
+                    className="text-black hover:text-[#FFB900]"
                   />
                 </Link>
                 <Link to="/shop" className="flex items-center">
                   <AiOutlineShopping
                     size={26}
-                    className="text-[#d8e2f2c3] hover:text-[#FFF]"
+                    className="text-black hover:text-[#FFB900]"
                   />
                 </Link>
                 <Link to="/cart" className="flex items-center relative">
                   <AiOutlineShoppingCart
                     size={26}
-                    className="text-[#d8e2f2c3] hover:text-[#FFF]"
+                    className="text-black hover:text-[#FFB900]"
                   />
                   <div className="absolute top-[-10px] left-4">
                     {cartItems?.length > 0 && (
                       <span>
-                        <span className="h-4 w-4 px-1 py-0 text-sm  bg-[#db1143f3] rounded-full">
+                        <span className="h-4 w-4 px-1 py-0 text-sm bg-[#FFB900] text-black rounded-full font-bold border border-black">
                           {cartItems?.reduce((a, c) => a + c.qty, 0)}
                         </span>
                       </span>
@@ -138,7 +133,7 @@ const Navigation = () => {
                 <Link to="/favorite" className="flex items-center relative">
                   <MdOutlineFavoriteBorder
                     size={26}
-                    className="text-[#d8e2f2c3] hover:text-[#FFF]"
+                    className="text-black hover:text-[#FFB900]"
                   />
                   <FavoritesCount />
                 </Link>
@@ -156,16 +151,14 @@ const Navigation = () => {
             </Link>
 
             <div
-              className={`${
-                userInfo?.isAdmin ? "flex gap-2 md:gap-3" : ""
-              } relative`}
+              className={`${userInfo?.isAdmin ? "flex gap-2 md:gap-3" : ""} relative`}
             >
               <button
                 onClick={toggleDropdown}
                 className="flex items-center focus:outline-none"
               >
                 {userInfo ? (
-                  <span className="flex gap-2 text-base font-medium capitalize text-[#d8e2f2c3] hover:text-[#FFF]">
+                  <span className="flex gap-2 text-base font-bold capitalize text-black hover:text-[#FFB900]">
                     <p>Hello,</p> {userInfo.username}
                   </span>
                 ) : (
@@ -174,14 +167,10 @@ const Navigation = () => {
                 {userInfo && (
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    className={`h-5 w-5 ml-1 ${
-                      dropdownOpen
-                        ? "transform rotate-0 transition-transform"
-                        : "transform rotate-360 transition-transform"
-                    }`}
+                    className={`h-5 w-5 ml-1 ${dropdownOpen ? "transform rotate-0 transition-transform" : "transform rotate-360 transition-transform"}`}
                     fill="none"
                     viewBox="0 0 24 24"
-                    stroke="white"
+                    stroke="#FFB900"
                   >
                     <path
                       strokeLinecap="round"
@@ -207,16 +196,16 @@ const Navigation = () => {
 
               {dropdownOpen && userInfo && (
                 <ul
-                  className={`absolute bg-[#000] text-[#ffffff] rounded-sm top-[50px] right-0 border border-[#858585] w-40 lg:w-52 z-20`}
+                  className={`absolute bg-white text-black rounded shadow-lg top-[50px] right-0 border border-[#FFB900] w-40 lg:w-52 z-20`}
                   onClick={() => setDropdownOpen(false)}
                 >
-                  <h2 className="w-full text-sm xl:text-lg font-semibold xl:font-bold border-b border-[#858585] py-3">
+                  <h2 className="w-full text-sm xl:text-lg font-semibold xl:font-bold border-b border-[#FFB900] py-3">
                     My Account
                   </h2>
 
                   {userInfo.isAdmin && (
                     <>
-                      <li className="flex items-center hover:bg-[#1f1f1f] transition-all duration-500 h-8 rounded-sm m-2 px-2">
+                      <li className="flex items-center hover:bg-[#FFB900] hover:text-black transition-all duration-500 h-8 rounded m-2 px-2">
                         <Link
                           to="/admin/dashboard"
                           className="flex gap-3 items-center justify-center "
@@ -225,7 +214,7 @@ const Navigation = () => {
                           Dashboard
                         </Link>
                       </li>
-                      <li className="flex items-center hover:bg-[#1f1f1f] transition-all duration-500 h-8 rounded-sm m-2 px-2">
+                      <li className="flex items-center hover:bg-[#FFB900] hover:text-black transition-all duration-500 h-8 rounded m-2 px-2">
                         <Link
                           to="/admin/productlist"
                           className="flex gap-3 items-center justify-center "
@@ -234,7 +223,7 @@ const Navigation = () => {
                           Products
                         </Link>
                       </li>
-                      <li className="flex items-center hover:bg-[#1f1f1f] transition-all duration-500 h-8 rounded-sm m-2 px-2">
+                      <li className="flex items-center hover:bg-[#FFB900] hover:text-black transition-all duration-500 h-8 rounded m-2 px-2">
                         <Link
                           to="/admin/categorylist"
                           className="flex gap-3 items-center justify-center "
@@ -243,7 +232,7 @@ const Navigation = () => {
                           Category
                         </Link>
                       </li>
-                      <li className="flex items-center hover:bg-[#1f1f1f] transition-all duration-500 h-8 rounded-sm m-2 px-2">
+                      <li className="flex items-center hover:bg-[#FFB900] hover:text-black transition-all duration-500 h-8 rounded m-2 px-2">
                         <Link
                           to="/admin/orderlist"
                           className="flex gap-3 items-center justify-center "
@@ -252,7 +241,7 @@ const Navigation = () => {
                           Orders
                         </Link>
                       </li>
-                      <li className="flex items-center hover:bg-[#1f1f1f] transition-all duration-500 h-8 rounded-sm m-2 px-2 border-b border-[#858585] mb-4">
+                      <li className="flex items-center hover:bg-[#FFB900] hover:text-black transition-all duration-500 h-8 rounded m-2 px-2 border-b border-[#FFB900] mb-4">
                         <Link
                           to="/admin/userlist"
                           className="flex gap-3 items-center justify-center "
@@ -264,7 +253,7 @@ const Navigation = () => {
                     </>
                   )}
 
-                  <li className="flex hover:bg-[#1f1f1f] transition-all duration-500 h-8 rounded-sm m-2 px-2">
+                  <li className="flex hover:bg-[#FFB900] hover:text-black transition-all duration-500 h-8 rounded m-2 px-2">
                     <Link
                       to="/profile"
                       className="flex gap-3 items-center justify-center "
@@ -273,7 +262,7 @@ const Navigation = () => {
                       Profile
                     </Link>
                   </li>
-                  <li className="flex items-center hover:bg-[#1f1f1f] transition-all duration-500 h-8 rounded-sm m-2 px-2">
+                  <li className="flex items-center hover:bg-[#FFB900] hover:text-black transition-all duration-500 h-8 rounded m-2 px-2">
                     <button
                       onClick={logoutHandler}
                       className="flex gap-3 items-center justify-center"
@@ -289,19 +278,13 @@ const Navigation = () => {
             {!userInfo && (
               <ul className="flex justify-between items-center gap-4">
                 <li>
-                  <Link to="/login" className="flex items-center">
+                  <Link to="/login" className="flex items-center text-black hover:text-[#FFB900]">
                     <AiOutlineLogin size={26} className="" />
-                    {/* <span className="text-base font-medium text-gray-400  ml-4">
-                      Login
-                    </span> */}
                   </Link>
                 </li>
                 <li>
-                  <Link to="/register" className="flex items-center">
+                  <Link to="/register" className="flex items-center text-black hover:text-[#FFB900]">
                     <AiOutlineUserAdd size={26} className="" />
-                    {/* <span className="text-base font-medium text-gray-400  ml-4">
-                      Register
-                    </span> */}
                   </Link>
                 </li>
               </ul>
@@ -312,9 +295,7 @@ const Navigation = () => {
         {/* Mobile Menu  */}
         {mobileMenu && (
           <div
-            className={`${
-              mobileMenu ? "mobile bg-[#FF4800] h-[100vh]" : "desktop"
-            }  flex  text-[#000000] pt-4 `}
+            className={`mobile bg-[#FFB900] h-[100vh] flex text-black pt-4`}
             onClick={() => setMobileMenu(false)}
           >
             <ContentWrapper>
@@ -322,7 +303,6 @@ const Navigation = () => {
                 to="/"
                 className="flex items-center transition-transform transform hover:translate-x-2"
               >
-                {/* <AiOutlineHome className="mr-2" size={26} /> */}
                 <span className="text-2xl lg:text-5xl font-bold pl-5 xl:pl-0">
                   Home
                 </span>{" "}
@@ -332,7 +312,6 @@ const Navigation = () => {
                 to="/shop"
                 className="flex items-center transition-transform transform hover:translate-x-2"
               >
-                {/* <AiOutlineShopping className="mr-2" size={26} /> */}
                 <span className="text-2xl lg:text-5xl font-bold pl-5 xl:pl-0">
                   Shop
                 </span>{" "}
@@ -340,30 +319,17 @@ const Navigation = () => {
 
               <Link to="/cart" className="flex relative">
                 <div className="flex items-center transition-transform transform hover:translate-x-2">
-                  {/* <AiOutlineShoppingCart className=" mr-2" size={26} /> */}
                   <span className="text-2xl lg:text-5xl font-bold pl-5 xl:pl-0">
                     Cart
                   </span>{" "}
                 </div>
-
-                {/* <div className="absolute top-9">
-                {cartItems.length > 0 && (
-                  <span>
-                    <span className="px-1 py-0 text-sm text-white bg-pink-500 rounded-full">
-                      {cartItems.reduce((a, c) => a + c.qty, 0)}
-                    </span>
-                  </span>
-                )}
-              </div> */}
               </Link>
 
               <Link to="/favorite" className="flex relative">
                 <div className="flex justify-center items-center transition-transform transform hover:translate-x-2">
-                  {/* <MdOutlineFavoriteBorder className=" mr-2" size={20} /> */}
                   <span className="text-2xl lg:text-5xl font-bold pl-5 xl:pl-0">
                     Favorites
                   </span>
-                  {/* <FavoritesCount ml={10} mb={5} /> */}
                 </div>
               </Link>
             </ContentWrapper>

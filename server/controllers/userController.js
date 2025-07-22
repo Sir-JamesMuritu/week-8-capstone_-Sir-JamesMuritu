@@ -1,8 +1,8 @@
-import bcrypt from "bcryptjs";
-import asyncHandler from "express-async-handler";
+const bcrypt = require("bcryptjs");
+const asyncHandler = require("express-async-handler");
 
-import User from "../models/userModel.js";
-import generateToken from "../utils/createToken.js";
+const User = require("../models/userModel.js");
+const generateToken = require("../utils/createToken.js");
 
 // @desc    Register new user
 // @route   POST /api/v1/users
@@ -229,7 +229,7 @@ const updateUserById = asyncHandler(async (req, res) => {
   }
 });
 
-export {
+module.exports = {
   createUser,
   loginUser,
   logoutCurrentUser,

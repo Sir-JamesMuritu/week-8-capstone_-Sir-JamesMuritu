@@ -1,6 +1,5 @@
-import Category from "../models/categoryModel.js";
-
-import asyncHandler from "express-async-handler";
+const Category = require("../models/categoryModel.js");
+const asyncHandler = require("express-async-handler");
 
 // @desc    Create new category
 // @route   POST /api/v1/category
@@ -8,93 +7,103 @@ const createCategory = asyncHandler(async (req, res) => {
   try {
     const { name } = req.body;
 
-    if (!name) res.status(400).json({ message: "Name should be required" });
+    if (!name) {
+      return res.status(400).json({ message: "Name is required" });
+    }
 
     const existingCategory = await Category.findOne({ name });
     if (existingCategory) {
-      res
-        .status(400)
-        .json({ message: `Category ${existingCategory.name} already exists` });
-      throw new Error(`Category ${existingCategory.name} already exists`);
+      return res.status(400).json({
+        message: `Category '${existingCategory.name}' already exists`,
+      });
     }
 
-    const category = await new Category({ name }).save();
-    res.status(200).json(category);
+    const category = await Category.create({ name });
+    res.status(201).json(category);
   } catch (error) {
-    console.log(error);
-    return res.status(400).json(error);
+    console.error("Create Category Error:", error);
+    res.status(500).json({ message: "Internal Server Error" });
   }
 });
 
 // @desc    Update category
-// @route   PUT /api/v1/category/categoryId
+// @route   PUT /api/v1/category/:categoryId
 const updateCategory = asyncHandler(async (req, res) => {
-  const { name } = req.body;
-  const { categoryId } = req.params;
-
   try {
-    const category = await Category.findOne({ _id: categoryId });
-    if (!category) res.status(404).json({ message: "Category not found" });
+    const { name } = req.body;
+    const { categoryId } = req.params;
 
-    category.name = name;
+    const category = await Category.findById(categoryId);
+    if (!category) {
+      return res.status(404).json({ message: "Category not found" });
+    }
 
+    category.name = name || category.name;
     const updatedCategory = await category.save();
+
     res.status(200).json(updatedCategory);
   } catch (error) {
-    console.error(error);
+    console.error("Update Category Error:", error);
     res.status(500).json({ message: "Internal Server Error" });
   }
 });
 
 // @desc    Delete a category
-// @route   DELETE /api/v1/category/categoryId
-const removeCategory = asyncHandler(async (req, res) => {
+// @route   DELETE /api/v1/category/:categoryId
+const deleteCategory = asyncHandler(async (req, res) => {
   try {
-    const deleteCategory = await Category.findByIdAndRemove(
-      req.params.categoryId
-    );
+    const category = await Category.findByIdAndRemove(req.params.categoryId);
+
+    if (!category) {
+      return res.status(404).json({ message: "Category not found" });
+    }
+
     res.status(200).json({
       message: "Category deleted",
       category: {
-        id: deleteCategory._id,
-        name: deleteCategory.name,
+        id: category._id,
+        name: category.name,
       },
     });
   } catch (error) {
-    console.error(error);
-    res.status(500).json({ error: "Internal server error" });
+    console.error("Delete Category Error:", error);
+    res.status(500).json({ message: "Internal Server Error" });
   }
 });
 
-// @desc    Get all category
+// @desc    Get all categories
 // @route   GET /api/v1/category/categories
-const listCategory = asyncHandler(async (req, res) => {
+const getAllCategories = asyncHandler(async (req, res) => {
   try {
     const all = await Category.find({});
-    res.json(all);
+    res.status(200).json(all);
   } catch (error) {
-    console.log(error);
-    return res.status(400).json(error.message);
+    console.error("List Categories Error:", error);
+    res.status(500).json({ message: "Internal Server Error" });
   }
 });
 
-// @desc    Get a category
-// @route   GET /api/v1/category/id
-
-const readCategory = asyncHandler(async (req, res) => {
+// @desc    Get a single category by ID
+// @route   GET /api/v1/category/:id
+const getCategoryById = asyncHandler(async (req, res) => {
   try {
-    const category = await Category.findOne({ _id: req.params.id });
-    res.json(category);
+    const category = await Category.findById(req.params.id);
+
+    if (!category) {
+      return res.status(404).json({ message: "Category not found" });
+    }
+
+    res.status(200).json(category);
   } catch (error) {
-    console.log(error);
-    return res.status(400).json(error.message);
+    console.error("Read Category Error:", error);
+    res.status(500).json({ message: "Internal Server Error" });
   }
 });
 
-export {
+module.exports = {
   createCategory,
   updateCategory,
-  removeCategory,
-  listCategory,
-  readCategory,
+  deleteCategory,
+  getAllCategories,
+  getCategoryById,
 };

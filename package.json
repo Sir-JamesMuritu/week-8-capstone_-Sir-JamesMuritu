@@ -1,19 +1,19 @@
 {
-  "name": "library-management-system",
+  "name": "ecommerce-shop",
   "version": "1.0.0",
-  "description": "A modern, full-stack Library Management System built with the MERN stack",
+  "description": "A modern, full-stack Ecommerce Shop built with the MERN stack",
   "main": "index.js",
   "scripts": {
     "install:all": "pnpm install && cd server && pnpm install && cd ../client && pnpm install",
-    "dev": "concurrently \"pnpm run dev:backend\" \"pnpm run dev:frontend\"",
-    "dev:backend": "cd server && pnpm start",
+    "dev": "concurrently \"pnpm run dev:server\" \"pnpm run dev:client\"",
+    "dev:server": "cd server && pnpm start",
     "dev:frontend": "cd client && pnpm run dev",
     "build": "cd client && npm run build",
     "start": "cd server && pnpm start"
   },
   "keywords": [
-    "library",
-    "management",
+    "ecommerce",
+    "shop",
     "system",
     "mern",
     "react",
@@ -21,12 +21,15 @@
     "mongodb",
     "tailwind"
   ],
-  "author": "Library Management Team",
+  "author": "Ecommerce Team",
   "license": "MIT",
   "devDependencies": {
     "concurrently": "^8.2.2"
   },
   "engines": {
     "node": ">=14.0.0"
+  },
+  "dependencies": {
+    "express": "^5.1.0"
   }
 }

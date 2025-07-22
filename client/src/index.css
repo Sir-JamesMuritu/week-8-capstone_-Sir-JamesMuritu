@@ -19,8 +19,8 @@ html {
 }
 
 body {
-  /* background: #0e1629; */
-  color: #fff;
+  background: #fff;
+  color: #000;
   height: 100vh;
   width: 100vw;
   overflow-x: hidden;
@@ -35,17 +35,13 @@ body {
 }
 
 .gradient-text {
-  background-image: linear-gradient(0deg, #ad60eb 43%, #ffffff 88%);
+  background-image: linear-gradient(0deg, #FFB900 43%, #ffffff 88%);
   color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
 }
 
 /* color palettes */
 footer {
-  /* color:#08D9D6, */
-  /* color:#252A34, */
-  /* color:#FF2E63, */
-  /* color:#EAEAEA */
-
-  /* color: #f84c01; */
-  color: #ff4800;
+  color: #FFB900;
 }

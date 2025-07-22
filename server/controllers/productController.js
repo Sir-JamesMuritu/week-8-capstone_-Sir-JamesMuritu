@@ -1,5 +1,5 @@
-import asyncHandler from "express-async-handler";
-import Product from "../models/productModel.js";
+const asyncHandler = require("express-async-handler");
+const Product = require("../models/productModel.js");
 
 // @desc    Add new product
 // @route   POST /api/v1/products
@@ -231,7 +231,7 @@ const filterProducts = asyncHandler(async (req, res) => {
     res.status(500).json({ error: "Server Error" });
   }
 });
-export {
+module.exports = {
   addProduct,
   updateProductDetails,
   removeProduct,

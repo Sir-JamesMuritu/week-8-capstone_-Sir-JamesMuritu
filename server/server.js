@@ -1,17 +1,16 @@
 // packages
-import path from "path";
-import express from "express";
-import dotenv from "dotenv";
-import cookieParser from "cookie-parser";
+const path = require("path");
+const express = require("express");
+const dotenv = require("dotenv");
+const cookieParser = require("cookie-parser");
 
 // Utils
-
-import connectDB from "./config/db.js";
-import userRouter from "./routes/userRouter.js";
-import categoryRoutes from "./routes/categoryRoutes.js";
-import productRoutes from "./routes/productRoutes.js";
-import uploadRoutes from "./routes/uploadRoutes.js";
-import orderRoutes from "./routes/orderRoutes.js";
+const connectDB = require("./config/db.js");
+const userRouter = require("./routes/userRouter.js");
+const categoryRoutes = require("./routes/categoryRoutes.js");
+const productRoutes = require("./routes/productRoutes.js");
+const uploadRoutes = require("./routes/uploadRoutes.js");
+const orderRoutes = require("./routes/orderRoutes.js");
 
 dotenv.config();
 const port = process.env.PORT || 5000;
@@ -38,9 +37,10 @@ app.get("/api/config/paypal", (req, res) => {
   res.send({ clientId: process.env.PAYPAL_CLIENT_ID });
 });
 
-const __dirname = path.resolve();
 app.use("/uploads", express.static(path.join(__dirname + "/uploads")));
 
 console.clear();
 
 app.listen(port, () => console.log(`Server running on port: ${port}`));
+
+

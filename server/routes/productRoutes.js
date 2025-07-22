@@ -1,10 +1,10 @@
-import express from "express";
-import formidable from "express-formidable";
+const express = require("express");
+const formidable = require("express-formidable");
 const router = express.Router();
 
-import { authenticate, authorizeAdmin } from "../middlewares/authMiddleware.js";
-import checkId from "../middlewares/checkId.js";
-import {
+const { authenticate, authorizeAdmin } = require("../middlewares/authMiddleware.js");
+const checkId = require("../middlewares/checkId.js");
+const {
   addProduct,
   updateProductDetails,
   removeProduct,
@@ -15,7 +15,7 @@ import {
   fetchTopProducts,
   fetchNewProducts,
   filterProducts,
-} from "../controllers/productController.js";
+} = require("../controllers/productController.js");
 
 router
   .route("/")
@@ -36,4 +36,4 @@ router
 
 router.route("/filtered-products").post(filterProducts);
 
-export default router;
+module.exports = router;
