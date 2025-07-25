@@ -182,6 +182,3 @@ This requirement document sets the bar for a top-notch MERN E-Commerce website. 
 
 _All products_
 ![Screenshot 1](./client/public/Admin_AllProducts.png)
-
-_All Orders_
-![Screenshot 1](./client/public/Admin_allOrders.png)
