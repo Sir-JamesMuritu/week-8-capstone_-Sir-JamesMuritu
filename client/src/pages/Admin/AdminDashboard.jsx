@@ -89,43 +89,43 @@ const AdminDashboard = () => {
   }, [salesDetail]);
 
   return (
-    <div className="bg-[#0E1629] min-h-[100vh]">
+    <div className="bg-accent min-h-[100vh]">
       <ContentWrapper>
         <section className="flex flex-col">
           <div className="w-[80%] flex justify-around flex-wrap">
-            <div className="rounded-lg bg-[#080d17] p-5 w-[20rem] mt-5">
-              <div className="font-bold rounded-full w-[3rem] bg-[#BD7EF4] text-center p-3 text-black">
+            <div className="rounded-lg bg-secondary p-5 w-[20rem] mt-5">
+              <div className="font-bold rounded-full w-[3rem] bg-primary text-center p-3 text-accent">
                 $
               </div>
 
-              <p className="mt-5">Total Sales:</p>
-              <h1 className="text-xl font-bold">
+              <p className="mt-5 text-accent">Total Sales:</p>
+              <h1 className="text-xl font-bold text-accent">
                 $ {isLoading ? <Loader /> : sales.totalSales.toFixed(2)}
               </h1>
             </div>
-            <div className="rounded-lg bg-[#080d17] p-5 w-[20rem] mt-5">
-              <div className="font-bold rounded-full w-[3rem] bg-[#BD7EF4] text-center p-3 text-black">
+            <div className="rounded-lg bg-secondary p-5 w-[20rem] mt-5">
+              <div className="font-bold rounded-full w-[3rem] bg-primary text-center p-3 text-accent">
                 $
               </div>
 
-              <p className="mt-5">Customers</p>
-              <h1 className="text-xl font-bold">
+              <p className="mt-5 text-accent">Customers</p>
+              <h1 className="text-xl font-bold text-accent">
                 $ {isLoading ? <Loader /> : customers?.length}
               </h1>
             </div>
-            <div className="rounded-lg bg-[#080d17] p-5 w-[20rem] mt-5">
-              <div className="font-bold rounded-full w-[3rem] bg-[#BD7EF4] text-center p-3 text-black">
+            <div className="rounded-lg bg-secondary p-5 w-[20rem] mt-5">
+              <div className="font-bold rounded-full w-[3rem] bg-primary text-center p-3 text-accent">
                 $
               </div>
 
-              <p className="mt-5">All Orders</p>
-              <h1 className="text-xl font-bold">
+              <p className="mt-5 text-accent">All Orders</p>
+              <h1 className="text-xl font-bold text-accent">
                 $ {isLoading ? <Loader /> : orders?.totalOrders}
               </h1>
             </div>
           </div>
 
-          <div className="mt-[4rem] text-[#fff]">
+          <div className="mt-[4rem] text-accent">
             <Chart
               options={state.options}
               series={state.series}

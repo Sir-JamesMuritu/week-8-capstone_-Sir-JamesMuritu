@@ -68,13 +68,13 @@ const ProductDetails = () => {
   };
 
   return (
-    <div className="bg-[#0F172A]">
+    <div className="bg-accent">
       <ContentWrapper>
         <div className="min-h-[100vh] pb-8">
           <div className="mb-4">
             <Link
               to="/"
-              className="text-white font-semibold text-base xl:text-lg"
+              className="text-secondary font-semibold text-base xl:text-lg"
             >
               <BsArrowLeft size={25} />
             </Link>
@@ -103,18 +103,18 @@ const ProductDetails = () => {
 
                   <div className="pt-8 flex-1 mx-4 h-full ">
                     <div className="w-[90%]">
-                      <h2 className="text-base md:text-2xl font-semibold">
+                      <h2 className="text-base md:text-2xl font-semibold text-primary">
                         {product?.name}
                       </h2>
-                      <p className="my-4 text-sm md:text-base text-[#97A1AF] ">
+                      <p className="my-4 text-sm md:text-base text-neutral ">
                         {product?.description}
                       </p>
 
-                      <p className="text-base md:text-xl font-semibold xl:font-bold mb-4 text-[#009650]">
-                        <span className="font-medium text-[#dddfe3]">
+                      <p className="text-base md:text-xl font-semibold xl:font-bold mb-4 text-green-600">
+                        <span className="font-medium text-secondary">
                           Price:
                         </span>{" "}
-                        <s className="font-medium text-[#97A1AF] mr-2">
+                        <s className="font-medium text-neutral mr-2">
                           $ {product?.price * 2}
                         </s>{" "}
                         $ {product?.price}
@@ -123,31 +123,25 @@ const ProductDetails = () => {
                       <div className="flex gap-6 my-4">
                         <div className="flex flex-col gap-3">
                           <h1 className="flex items-center ">
-                            <FaStore className="mr-2 text-white" /> Brand:{" "}
-                            {product?.brand}
+                            <FaStore className="mr-2 text-secondary" /> Brand: {product?.brand}
                           </h1>
                           <h1 className="flex items-center">
-                            <FaClock className="mr-2 text-white" /> Added:{" "}
-                            {moment(product?.createAt).format("MMM Do YY")}
+                            <FaClock className="mr-2 text-secondary" /> Added: {moment(product?.createAt).format("MMM Do YY")}
                           </h1>
                           <h1 className="flex items-center">
-                            <FaStar className="mr-2 text-white" /> Reviews:{" "}
-                            {product?.numReviews}
+                            <FaStar className="mr-2 text-secondary" /> Reviews: {product?.numReviews}
                           </h1>
                         </div>
 
                         <div className="flex flex-col gap-3">
                           <h1 className="flex items-center ">
-                            <FaStar className="mr-2 text-white" /> Ratings:{" "}
-                            {rating}
+                            <FaStar className="mr-2 text-secondary" /> Ratings: {rating}
                           </h1>
                           <h1 className="flex items-center ">
-                            <FaShoppingCart className="mr-2 text-white" />{" "}
-                            Quantity: {product?.quantity}
+                            <FaShoppingCart className="mr-2 text-secondary" /> Quantity: {product?.quantity}
                           </h1>
                           <h1 className="flex items-center">
-                            <FaBox className="mr-2 text-white" /> In Stock:{" "}
-                            {product?.countInStock}
+                            <FaBox className="mr-2 text-secondary" /> In Stock: {product?.countInStock}
                           </h1>
                         </div>
                       </div>
@@ -163,11 +157,11 @@ const ProductDetails = () => {
                             <select
                               value={qty}
                               onChange={(e) => setQty(e.target.value)}
-                              className="rounded-sm outline-none p-1 border text-white bg-[#0F172A]"
+                              className="rounded-sm outline-none p-1 border text-secondary bg-accent"
                             >
                               {[...Array(product?.countInStock).keys()].map(
                                 (x) => (
-                                  <option key={x + 1} value={x + 1}>
+                                  <option key={x + 1} value={x + 1} className="text-accent bg-secondary">
                                     {x + 1}
                                   </option>
                                 )
@@ -180,7 +174,7 @@ const ProductDetails = () => {
                         <button
                           onClick={addToCartHandler}
                           disabled={product.countInStock === 0}
-                          className="bg-[#db1143f3] hover:bg-[#FF2E63] transition-colors text-white border-none outline-none w-full  px-4 py-2 rounded cursor-pointer text-base font-semibold mt-12 mb-4"
+                          className="bg-primary hover:bg-neutral transition-colors text-secondary border-none outline-none w-full  px-4 py-2 rounded cursor-pointer text-base font-semibold mt-12 mb-4"
                         >
                           Add To Cart
                         </button>
@@ -190,7 +184,7 @@ const ProductDetails = () => {
                 </div>
 
                 <div className="">
-                  <div className="border border-[#444444] mt-[5rem] container flex flex-wrap items-start justify-between min-h-[300px]">
+                  <div className="border border-neutral mt-[5rem] container flex flex-wrap items-start justify-between min-h-[300px] bg-secondary">
                     <ProductTabs
                       loadingProductReview={loadingProductReview}
                       userInfo={userInfo}

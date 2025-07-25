@@ -8,7 +8,7 @@ const OrderList = () => {
   const { data: orders, isLoading, error } = useGetOrdersQuery();
 
   return (
-    <div className="bg-[#0E1629] min-h-[100vh]">
+    <div className="bg-accent min-h-[100vh]">
       {isLoading ? (
         <div className="w-full h-[80vh] flex justify-center items-center">
           <Loader />
@@ -18,10 +18,10 @@ const OrderList = () => {
           {error?.data?.message || error.error}
         </Message>
       ) : (
-        <table className="container mx-auto">
+        <table className="container mx-auto bg-secondary text-accent">
           {/* <AdminMenu /> */}
 
-          <thead className="w-full border">
+          <thead className="w-full border-b border-neutral">
             <tr className="mb-[5rem]">
               <th className="text-left pl-1">ITEMS</th>
               <th className="text-left pl-1">ID</th>
@@ -36,7 +36,7 @@ const OrderList = () => {
 
           <tbody>
             {orders.map((order) => (
-              <tr key={order._id}>
+              <tr key={order._id} className="border-b border-neutral">
                 <td>
                   <img
                     src={order.orderItems[0].image}
@@ -52,15 +52,15 @@ const OrderList = () => {
                   {order.createdAt ? order.createdAt.substring(0, 10) : "N/A"}
                 </td>
 
-                <td>$ {order.totalPrice}</td>
+                <td className="text-primary">$ {order.totalPrice}</td>
 
                 <td className="py-2">
                   {order.isPaid ? (
-                    <p className="px-2 py-1 text-center bg-[#2765EC] max-w-[70%] rounded">
+                    <p className="px-2 py-1 text-center bg-primary text-secondary max-w-[70%] rounded">
                       Completed
                     </p>
                   ) : (
-                    <p className="px-2 py-1 text-center bg-[#FF2E63] max-w-[70%] rounded">
+                    <p className="px-2 py-1 text-center bg-neutral text-secondary max-w-[70%] rounded">
                       Pending
                     </p>
                   )}
@@ -68,11 +68,11 @@ const OrderList = () => {
 
                 <td className="px-2 py-2">
                   {order.isDelivered ? (
-                    <p className="px-2 py-1 text-center bg-[#2765EC] max-w-[70%] rounded">
+                    <p className="px-2 py-1 text-center bg-primary text-secondary max-w-[70%] rounded">
                       Completed
                     </p>
                   ) : (
-                    <p className="px-2 py-1 text-center bg-[#FF2E63] max-w-[70%] rounded">
+                    <p className="px-2 py-1 text-center bg-neutral text-secondary max-w-[70%] rounded">
                       Pending
                     </p>
                   )}
@@ -80,7 +80,7 @@ const OrderList = () => {
 
                 <td>
                   <Link to={`/order/${order._id}`}>
-                    <button className="px-2 py-1 text-center bg-[#2765EC] max-w-[70%] rounded">
+                    <button className="px-2 py-1 text-center bg-primary text-secondary max-w-[70%] rounded">
                       More
                     </button>
                   </Link>

@@ -96,14 +96,14 @@ const CategoryList = () => {
   };
 
   return (
-    <div className="flex flex-col justify-center md:flex-row pt-10 bg-[#0E1629] min-h-[100vh]">
+    <div className="flex flex-col justify-center md:flex-row pt-10 bg-accent min-h-[100vh]">
       {/* <AdminMenu /> */}
       <ContentWrapper>
         <div className="px-4">
-          <h1 className="text-xl md:text-3xl font-semibold mb-4 text-[#F6F6F6]">
-            Welcome to LuxeHaven! 👋🏻
+          <h1 className="text-xl md:text-3xl font-semibold mb-4 text-secondary">
+            Welcome to HeavenLuxury! 👋🏻
           </h1>
-          <h1 className="text-xl md:text-2xl font-medium mb-2">
+          <h1 className="text-xl md:text-2xl font-medium mb-2 text-accent">
             Manage Categories
           </h1>
           <CategoryForm
@@ -113,14 +113,14 @@ const CategoryList = () => {
           />
           <br />
           {/* <hr /> */}
-          <h1 className="text-xl md:text-2xl font-medium mb-2 ">
+          <h1 className="text-xl md:text-2xl font-medium mb-2 text-accent">
             All Categories :
           </h1>
           <div className="flex flex-wrap">
             {categories?.map((category) => (
               <div key={category._id}>
                 <button
-                  className="border border-[#08D9D6] transition-all ease-in hover:bg-[#02f2ff] text-[#ffffff] hover:text-[#000000] font-bold py-2 px-4 rounded-sm m-3 focus:outline-none  focus:ring-opacity-50"
+                  className="border border-primary transition-all ease-in hover:bg-primary text-secondary hover:text-accent font-bold py-2 px-4 rounded-sm m-3 focus:outline-none  focus:ring-opacity-50"
                   onClick={() => {
                     {
                       setModalVisible(true);

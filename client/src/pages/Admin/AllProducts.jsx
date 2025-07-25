@@ -21,21 +21,16 @@ const AllProducts = () => {
 
   return (
     <>
-      <div className="bg-[#0E1629] min-h-[100vh]">
+      <div className="bg-accent min-h-[100vh]">
         <div className="">
           <div className="p-3">
-            <div className="text-center text-xl md:text-2xl font-bold">
+            <div className="text-center text-xl md:text-2xl font-bold text-primary">
               All Products ({products.length})
             </div>
             <div className="flex flex-wrap justify-around items-center gap-6 flex-col mt-[1rem]">
               {products.map((product) => (
                 <div key={product._id} className="w-full px-4">
-                  {/* <Link
-                  key={product._id}
-                  to={`/admin/product/update/${product._id}`}
-                  className="block mb-4 overflow-hidden"
-                > */}
-                  <div className="flex justify-center flex-col md:flex-row">
+                  <div className="flex justify-center flex-col md:flex-row bg-secondary rounded shadow-md">
                     <img
                       src={product.image}
                       alt={product.name}
@@ -43,23 +38,23 @@ const AllProducts = () => {
                     />
                     <div className="p-4 flex flex-col justify-around">
                       <div className="flex justify-between">
-                        <h5 className="text-xl font-semibold mb-2">
+                        <h5 className="text-xl font-semibold mb-2 text-accent">
                           {product?.name?.substring(0, 30)}...
                         </h5>
 
-                        <p className="text-gray-400 text-xs">
+                        <p className="text-neutral text-xs">
                           {moment(product.createdAt).format("MMMM Do YYYY")}
                         </p>
                       </div>
 
-                      <p className="text-gray-400 xl:w-[30rem] lg:w-[30rem] md:w-[20rem] sm:w-[10rem] text-sm mb-4">
+                      <p className="text-neutral xl:w-[30rem] lg:w-[30rem] md:w-[20rem] sm:w-[10rem] text-sm mb-4">
                         {product?.description?.substring(0, 120)}...
                       </p>
 
                       <div className="flex justify-between">
                         <Link
                           to={`/admin/product/update/${product._id}`}
-                          className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-[#db1143f3] rounded border-none outline-none hover:bg-[#FF2E63]"
+                          className="inline-flex items-center px-3 py-2 text-sm font-medium text-secondary bg-primary rounded border-none outline-none hover:bg-neutral"
                         >
                           Update Product
                           <svg
@@ -78,11 +73,10 @@ const AllProducts = () => {
                             />
                           </svg>
                         </Link>
-                        <p>$ {product?.price}</p>
+                        <p className="text-primary">$ {product?.price}</p>
                       </div>
                     </div>
                   </div>
-                  {/* </Link> */}
                 </div>
               ))}
             </div>

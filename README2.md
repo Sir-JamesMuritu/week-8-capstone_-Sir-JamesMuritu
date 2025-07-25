@@ -1,34 +1,28 @@
 <div align="center">
 
-# LuxeHaven - A Modern Fullstack (MERN) E-Commerce Platform
+# HeavenLuxury - A Modern Fullstack (MERN) E-Commerce Platform
 
 </div>
-
-[![iamjabeed - LuxeHaven](https://img.shields.io/static/v1?label=iamjabeed&message=LuxeHaven&color=%236D3CB4&logo=github)](https://github.com/iamjabeed/LuxeHaven "Go to GitHub repo")
-
-- LinkedIn: [iamjabeed](https://www.linkedin.com/in/iamjabeed/)
-
-- Instagram: [iamjabeed_04](https://www.instagram.com/iamjabeed_04/)
 
 #### Project Result Screenshots:
 
 _Home Page_
-![Screenshot 1](./frontend/public/HomePage.png)
+![Screenshot 1](./client/public/HomePage.png)
 
 _Shop Page_
-![Screenshot 1](./frontend/public/shop.png)
+![Screenshot 1](./client/public/shop.png)
 
 _Login Page_
-![Screenshot 1](./frontend/public/Login.png)
+![Screenshot 1](./client/public/Login.png)
 
 _Register Page_
-![Screenshot 1](./frontend/public/Register.png)
+![Screenshot 1](./client/public/Register.png)
 
 _Cart🛒_
-![Screenshot 1](./frontend/public/Cart.png)
+![Screenshot 1](./client/public/Cart.png)
 
 _Product Detailed Page_
-![Screenshot 1](./frontend/public/ProductDetailed.png)
+![Screenshot 1](./client/public/ProductDetailed.png)
 
 - Scroll down for Admin related pages
 
@@ -187,7 +181,7 @@ This requirement document sets the bar for a top-notch MERN E-Commerce website. 
 ##### Admin Pages
 
 _All products_
-![Screenshot 1](./frontend/public/Admin_AllProducts.png)
+![Screenshot 1](./client/public/Admin_AllProducts.png)
 
 _All Orders_
-![Screenshot 1](./frontend/public/Admin_allOrders.png)
+![Screenshot 1](./client/public/Admin_allOrders.png)

@@ -17,17 +17,16 @@ const ProductCard = ({ p }) => {
   };
 
   return (
-    <div className="w-44 md:w-48 lg:w-64 h-80 lg:h-80 overflow-hidden border border-[#444444] relative rounded-sm shadow">
+    <div className="w-44 md:w-48 lg:w-64 h-80 lg:h-80 overflow-hidden border border-neutral relative rounded-sm shadow bg-secondary">
       <section className="relative h-[70%]">
         <Link to={`/product/${p._id}`}>
-          <span className="absolute z-30 bottom-3 right-3 bg-[#0F172A] text-white text-sm font-medium mr-2 px-2.5 py-0.5 rounded-md">
+          <span className="absolute z-30 bottom-3 right-3 bg-accent text-secondary text-sm font-medium mr-2 px-2.5 py-0.5 rounded-md">
             {p?.brand}
           </span>
           <img
             className="w-full h-full object-cover transition-transform ease-in-out duration-500 transform hover:scale-105"
             src={p.image}
             alt={p.name}
-            // style={{ height: "170px", objectFit: "cover" }}
           />
         </Link>
         <HeartIcon product={p} />
@@ -35,11 +34,11 @@ const ProductCard = ({ p }) => {
 
       <div className="h-[30%] mt-2 px-2 overflow-hidden">
         <div className="flex justify-between">
-          <h5 className="mb-2 text-sm md:text-base text-white">
+          <h5 className="mb-2 text-sm md:text-base text-accent">
             {p?.name.substring(0, 15)}...
           </h5>
 
-          <p className="font-semibold text-[#FF2E63]">
+          <p className="font-semibold text-primary">
             {p?.price?.toLocaleString("en-US", {
               style: "currency",
               currency: "USD",
@@ -54,7 +53,7 @@ const ProductCard = ({ p }) => {
         <section className="flex justify-between items-center">
           <Link
             to={`/product/${p._id}`}
-            className="inline-flex items-center p-1 lg:px-3 lg:py-2 text-sm font-medium text-center text-white bg-[#FF2E63] rounded-sm"
+            className="inline-flex items-center p-1 lg:px-3 lg:py-2 text-sm font-medium text-secondary bg-primary rounded-sm"
           >
             Read More
             <svg
@@ -75,7 +74,7 @@ const ProductCard = ({ p }) => {
           </Link>
 
           <button
-            className="p-2 rounded-full"
+            className="p-2 rounded-full bg-primary text-secondary hover:bg-accent hover:text-primary transition-colors"
             onClick={() => addToCartHandler(p, 1)}
           >
             <AiOutlineShoppingCart size={25} />

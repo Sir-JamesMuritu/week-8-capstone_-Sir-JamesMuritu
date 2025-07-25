@@ -69,14 +69,14 @@ const ProductList = () => {
   };
 
   return (
-    <div className="bg-[#0E1629] min-h-[100vh]">
+    <div className="bg-accent min-h-[100vh]">
       <ContentWrapper>
-        <div className="grid place-content-center items-center text-[#eaeaea] py-5 mx-4">
+        <div className="grid place-content-center items-center text-accent py-5 mx-4">
           <div className="flex flex-col justify-center items-center">
             {/* <AdminMenu /> */}
             <div className="flex flex-col ">
               <div className="mb-1">
-                <h1 className="text-xl md:text-2xl 2xl:text-3xl font-semibold mb-4 text-[#F6F6F6]">
+                <h1 className="text-xl md:text-2xl 2xl:text-3xl font-semibold mb-4 text-secondary">
                   Create Product
                 </h1>
               </div>
@@ -93,8 +93,8 @@ const ProductList = () => {
 
               <div className="mb-1 ml-2">
                 <label
-                  className="border rounded border-[#444444] xl:px-4 block w-[320px] 
-            md:w-[460px] xl:w-[98%] text-center cursor-pointer py-4 text-base 2xl:text-xl font-semibold mb-1 text-[#F6F6F6] overflow-hidden"
+                  className="border rounded border-neutral xl:px-4 block w-[320px] 
+            md:w-[460px] xl:w-[98%] text-center cursor-pointer py-4 text-base 2xl:text-xl font-semibold mb-1 text-secondary overflow-hidden"
                 >
                   {image ? image.name : "Upload Image"}
 
@@ -105,7 +105,7 @@ const ProductList = () => {
                     onChange={uploadFileHandler}
                     className={`${
                       !image ? "hidden" : " "
-                    } ml-6 mt-1 p-2 bg-[#0E1629] placeholder-[#eaeaeab9] text-[#db1143f3] outline-none border-none text-base `}
+                    } ml-6 mt-1 p-2 bg-accent placeholder-neutral text-primary outline-none border-none text-base `}
                   />
                 </label>
               </div>
@@ -113,19 +113,19 @@ const ProductList = () => {
               <div className="p-3">
                 <div className="flex flex-wrap gap-6">
                   <div className="one">
-                    <label htmlFor="name">Name</label> <br />
+                    <label htmlFor="name" className="text-secondary">Name</label> <br />
                     <input
                       type="text"
-                      className="mt-1 p-2 border rounded  w-[320px] md:w-[460px] 2xl:w-[520px] mb-4 bg-[#0E1629] placeholder-[#eaeaeab9]  text-[#F6F6F6] outline-none border-[#444444] focus:border-[#FF2E63]"
+                      className="mt-1 p-2 border rounded  w-[320px] md:w-[460px] 2xl:w-[520px] mb-4 bg-accent placeholder-neutral  text-secondary outline-none border-neutral focus:border-primary"
                       value={name}
                       onChange={(e) => setName(e.target.value)}
                     />
                   </div>
                   <div className="two">
-                    <label htmlFor="name block">Price</label> <br />
+                    <label htmlFor="price" className="text-secondary">Price</label> <br />
                     <input
                       type="number"
-                      className="mt-1 p-2 border rounded  w-[320px] md:w-[460px] 2xl:w-[520px] mb-4 bg-[#0E1629] placeholder-[#eaeaeab9]  text-[#F6F6F6] outline-none border-[#444444] focus:border-[#FF2E63]"
+                      className="mt-1 p-2 border rounded  w-[320px] md:w-[460px] 2xl:w-[520px] mb-4 bg-accent placeholder-neutral  text-secondary outline-none border-neutral focus:border-primary"
                       value={price}
                       onChange={(e) => setPrice(e.target.value)}
                     />
@@ -133,19 +133,19 @@ const ProductList = () => {
                 </div>
                 <div className="flex flex-wrap gap-6">
                   <div className="one">
-                    <label htmlFor="name block">Quantity</label> <br />
+                    <label htmlFor="quantity" className="text-secondary">Quantity</label> <br />
                     <input
                       type="number"
-                      className="mt-1 p-2 border rounded  w-[320px] md:w-[460px] 2xl:w-[520px] mb-4 bg-[#0E1629] placeholder-[#eaeaeab9]  text-[#F6F6F6] outline-none border-[#444444] focus:border-[#FF2E63]"
+                      className="mt-1 p-2 border rounded  w-[320px] md:w-[460px] 2xl:w-[520px] mb-4 bg-accent placeholder-neutral  text-secondary outline-none border-neutral focus:border-primary"
                       value={quantity}
                       onChange={(e) => setQuantity(e.target.value)}
                     />
                   </div>
                   <div className="two">
-                    <label htmlFor="name block">Brand</label> <br />
+                    <label htmlFor="brand" className="text-secondary">Brand</label> <br />
                     <input
                       type="text"
-                      className="mt-1 p-2 border rounded  w-[320px] md:w-[460px] 2xl:w-[520px] mb-4 bg-[#0E1629] placeholder-[#eaeaeab9]  text-[#F6F6F6] outline-none border-[#444444] focus:border-[#FF2E63]"
+                      className="mt-1 p-2 border rounded  w-[320px] md:w-[460px] 2xl:w-[520px] mb-4 bg-accent placeholder-neutral  text-secondary outline-none border-neutral focus:border-primary"
                       value={brand}
                       onChange={(e) => setBrand(e.target.value)}
                     />
@@ -153,10 +153,10 @@ const ProductList = () => {
                 </div>
 
                 <div className="flex flex-col gap-1">
-                  <label htmlFor="">Description</label>
+                  <label htmlFor="description" className="text-secondary">Description</label>
                   <textarea
                     type="text"
-                    className="mt-1 p-2 border rounded  mb-1 bg-[#0E1629] placeholder-[#eaeaeab9]  text-[#F6F6F6] outline-none border-[#444444] focus:border-[#FF2E63] w-[320px] md:w-[460px] xl:w-[100%]"
+                    className="mt-1 p-2 border rounded  mb-1 bg-accent placeholder-neutral  text-secondary outline-none border-neutral focus:border-primary w-[320px] md:w-[460px] xl:w-[100%]"
                     value={description}
                     onChange={(e) => setDescription(e.target.value)}
                   ></textarea>
@@ -164,25 +164,24 @@ const ProductList = () => {
 
                 <div className="flex flex-wrap gap-6">
                   <div>
-                    <label htmlFor="name block">Count In Stock</label> <br />
+                    <label htmlFor="stock" className="text-secondary">Count In Stock</label> <br />
                     <input
                       type="text"
-                      className="mt-1 p-2 border rounded  w-[320px] md:w-[460px] 2xl:w-[520px] mb-4 bg-[#0E1629] placeholder-[#eaeaeab9]  text-[#F6F6F6] outline-none border-[#57575b] focus:border-[#FF2E63]"
+                      className="mt-1 p-2 border rounded  w-[320px] md:w-[460px] 2xl:w-[520px] mb-4 bg-accent placeholder-neutral  text-secondary outline-none border-neutral focus:border-primary"
                       value={stock}
                       onChange={(e) => setStock(e.target.value)}
                     />
                   </div>
 
                   <div>
-                    <label htmlFor="">Category</label> <br />
+                    <label htmlFor="category" className="text-secondary">Category</label> <br />
                     <select
                       placeholder="Choose Category"
-                      //   className="p-4 mb-3 w-[30rem] border rounded-lg bg-[#101011] text-white"
-                      className="mt-1 p-2 border rounded  w-[320px] md:w-[460px] 2xl:w-[520px] mb-4 bg-[#0E1629] placeholder-[#eaeaeab9]  text-[#F6F6F6] outline-none border-[#57575b] focus:border-[#FF2E63]"
+                      className="mt-1 p-2 border rounded  w-[320px] md:w-[460px] 2xl:w-[520px] mb-4 bg-accent placeholder-neutral  text-secondary outline-none border-neutral focus:border-primary"
                       onChange={(e) => setCategory(e.target.value)}
                     >
                       {categories?.map((category) => (
-                        <option key={category._id} value={category._id}>
+                        <option key={category._id} value={category._id} className="text-accent bg-secondary">
                           {category.name}
                         </option>
                       ))}
@@ -192,7 +191,7 @@ const ProductList = () => {
                 <div className="xl:flex xl:justify-center xl:items-center">
                   <button
                     onClick={handleSubmit}
-                    className="bg-[#db1143f3] hover:bg-[#FF2E63] transition-colors text-white border-none outline-none w-[320px] md:w-[460px] lg:w-[100%] px-4 py-2 rounded cursor-pointer my-[1rem] text-base font-semibold"
+                    className="bg-primary hover:bg-neutral transition-colors text-secondary border-none outline-none w-[320px] md:w-[460px] lg:w-[100%] px-4 py-2 rounded cursor-pointer my-[1rem] text-base font-semibold"
                   >
                     Create
                   </button>

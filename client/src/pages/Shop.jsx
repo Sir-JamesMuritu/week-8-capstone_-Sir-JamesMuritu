@@ -82,11 +82,11 @@ const Shop = () => {
   };
 
   return (
-    <div className="bg-[#0E1527] min-h-screen">
+    <div className="bg-accent min-h-screen">
       <ContentWrapper>
         <div className="flex md:flex-row container mx-auto">
-          <div className="hidden lg:block p-3 mb-4 border border-[#444444] h-full fixed top-[80px] z-20 overflow-y-scroll lg:w-[260px] pb-28 text-[#FFFFFF]">
-            <h2 className="text-center py-2 bg-[#2765EC] text-[#FFFFFF] hover:shadow-md hover:bg-[#1b56d5] mb-2 rounded-sm">
+          <div className="hidden lg:block p-3 mb-4 border border-neutral h-full fixed top-[80px] z-20 overflow-y-scroll lg:w-[260px] pb-28 text-secondary bg-accent">
+            <h2 className="text-center py-2 bg-primary text-secondary hover:shadow-md hover:bg-neutral mb-2 rounded-sm">
               Filter by Categories
             </h2>
 
@@ -98,11 +98,11 @@ const Shop = () => {
                       type="checkbox"
                       id="red-checkbox"
                       onChange={(e) => handleCheck(e.target.checked, c._id)}
-                      className="w-4 h-4 rounded-[50%] "
+                      className="w-4 h-4 rounded-[50%] accent-primary"
                     />
                     <label
                       htmlFor="pink-checkbox"
-                      className="ml-2 text-sm font-medium text-white"
+                      className="ml-2 text-sm font-medium text-secondary"
                     >
                       {c.name}
                     </label>
@@ -111,7 +111,7 @@ const Shop = () => {
               ))}
             </div>
 
-            <h2 className="text-center py-2 bg-[#2765EC] text-[#FFFFFF] hover:shadow-md hover:bg-[#1b56d5] mb-2 rounded-sm">
+            <h2 className="text-center py-2 bg-primary text-secondary hover:shadow-md hover:bg-neutral mb-2 rounded-sm">
               Filter by Brands
             </h2>
 
@@ -124,12 +124,12 @@ const Shop = () => {
                       id={brand}
                       name="brand"
                       onChange={() => handleBrandClick(brand)}
-                      className="w-4 h-4"
+                      className="w-4 h-4 accent-primary"
                     />
 
                     <label
                       htmlFor="pink-radio"
-                      className="ml-2 text-sm font-medium text-white"
+                      className="ml-2 text-sm font-medium text-secondary"
                     >
                       {brand}
                     </label>
@@ -138,7 +138,7 @@ const Shop = () => {
               ))}
             </div>
 
-            <h2 className="text-center py-2 bg-[#2765EC] text-[#FFFFFF] hover:shadow-md hover:bg-[#1b56d5] mb-2 rounded-sm">
+            <h2 className="text-center py-2 bg-primary text-secondary hover:shadow-md hover:bg-neutral mb-2 rounded-sm">
               Filer by Price
             </h2>
 
@@ -148,13 +148,13 @@ const Shop = () => {
                 placeholder="Enter Price"
                 value={priceFilter}
                 onChange={handlePriceChange}
-                className="w-full px-3 py-2 bg-transparent border border-[#959fb3] focus:border-[#1b56d5] outline-none text-white placeholder-white my-2"
+                className="w-full px-3 py-2 bg-transparent border border-neutral focus:border-primary outline-none text-secondary placeholder-secondary my-2"
               />
             </div>
 
             <div className="w-full">
               <button
-                className="w-full py-2 text-center bg-[#2765EC] text-[#FFFFFF] hover:shadow-md hover:bg-[#1b56d5] rounded-sm"
+                className="w-full py-2 text-center bg-primary text-secondary hover:shadow-md hover:bg-neutral rounded-sm"
                 onClick={() => window.location.reload()}
               >
                 Reset
@@ -162,8 +162,8 @@ const Shop = () => {
             </div>
           </div>
 
-          <div className="lg:ml-[280px] border border-[#444444]">
-            <h2 className="mb-2 p-2">Products ({products?.length})</h2>
+          <div className="lg:ml-[280px] border border-neutral bg-secondary">
+            <h2 className="mb-2 p-2 text-accent">Products ({products?.length})</h2>
             <div className="flex flex-wrap">
               {products.length === 0 ? (
                 <Loader />

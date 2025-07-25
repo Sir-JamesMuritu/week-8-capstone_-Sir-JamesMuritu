@@ -19,12 +19,12 @@ const Header = () => {
   }
   return (
     <>
-      <div className="bg-white">
+      <div className="bg-secondary text-accent">
         <Hero />
         <ContentWrapper>
           <div className="container justify-around items-start flex flex-wrap mx-auto gap-4">
             <div className="mb-[2rem] lg:mb-0">
-              <h4 className="text-base lg:text-2xl font-bold mb-8 text-[#FFB900]">
+              <h4 className="text-base lg:text-2xl font-bold mb-8 text-primary">
                 Top Products
               </h4>
               <div className="grid grid-cols-2 gap-4 items-center w-full">

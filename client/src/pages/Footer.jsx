@@ -3,7 +3,7 @@ import ContentWrapper from "../components/ContentWrapper";
 
 const Footer = () => {
   return (
-    <footer className="px-4 pt-4 w-full flex bg-[#FF4800] border-t-4 border-[#000000] text-black lg:pb-40">
+    <footer className="px-4 pt-4 w-full flex bg-primary border-t-4 border-accent text-accent lg:pb-40">
       <ContentWrapper>
         <aside>
           <div className="flex gap-52">
@@ -11,7 +11,7 @@ const Footer = () => {
               <p className="text-base md:text-lg font-light">
                 Copyright © 2023 - Made With 🖤 by{" "}
                 <a
-                  className="font-bold capitalize hover:border-b-4 border-black"
+                  className="font-bold capitalize hover:border-b-4 border-accent"
                   href="https://github.com/iamjabeed"
                   target="_blank"
                 >
@@ -23,7 +23,7 @@ const Footer = () => {
               <h2 className="text-base md:text-xl font-semibold">Connect:</h2>
               <ul className="flex flex-col text-base md:text-lg font-medium">
                 <Link to={"https://github.com/iamjabeed"} target="_blank">
-                  <li className="border-b-4 border-transparent hover:border-black w-fit">
+                  <li className="border-b-4 border-transparent hover:border-accent w-fit">
                     GitHub: @iamjabeed
                   </li>
                 </Link>
@@ -31,7 +31,7 @@ const Footer = () => {
                   to={"https://www.linkedin.com/in/iamjabeed/"}
                   target="_blank"
                 >
-                  <li className="border-b-4 border-transparent hover:border-black w-fit">
+                  <li className="border-b-4 border-transparent hover:border-accent w-fit">
                     LinkedIn: @iamjabeed
                   </li>
                 </Link>
@@ -39,7 +39,7 @@ const Footer = () => {
                   to={"https://www.instagram.com/iamjabeed_04/"}
                   target="_blank"
                 >
-                  <li className="hover:border-b-4 border-black w-fit">
+                  <li className="hover:border-b-4 border-accent w-fit">
                     Instagram: @iamjabeed_04
                   </li>
                 </Link>

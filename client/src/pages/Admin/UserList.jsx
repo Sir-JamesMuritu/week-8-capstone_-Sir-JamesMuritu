@@ -57,8 +57,8 @@ const UserList = () => {
   };
 
   return (
-    <div className="p-4 bg-[#0E1629] min-h-[100vh]">
-      <h1 className="md:text-2xl font-semibold mb-8 flex items-center justify-center uppercase md:border-b-2 md:mx-[40%] text-[#FFF]">
+    <div className="p-4 bg-accent min-h-[100vh]">
+      <h1 className="md:text-2xl font-semibold mb-8 flex items-center justify-center uppercase md:border-b-2 md:mx-[40%] text-primary">
         All Users
       </h1>
       {isLoading ? (
@@ -72,7 +72,7 @@ const UserList = () => {
       ) : (
         <div className="flex flex-col md:flex-row">
           {/* <AdminMenu /> */}
-          <table className="w-full md:w-4/5 mx-auto table-auto">
+          <table className="w-full md:w-4/5 mx-auto table-auto bg-secondary text-accent">
             <thead>
               <tr>
                 <th className="px-4 py-2 text-left">ID</th>
@@ -84,7 +84,7 @@ const UserList = () => {
             </thead>
             <tbody>
               {users.map((user) => (
-                <tr key={user._id}>
+                <tr key={user._id} className="border-b border-neutral">
                   <td className="px-4 py-2">{user._id}</td>
                   <td className="px-4 py-2">
                     {editableUserId === user._id ? (
@@ -93,11 +93,11 @@ const UserList = () => {
                           type="text"
                           value={editableUserName}
                           onChange={(e) => setEditableUserName(e.target.value)}
-                          className="w-full p-2 border rounded-md bg-[#0F0F10] placeholder-[#eaeaeab9] text-[#F6F6F6] outline-none border-[#57575b] focus:border-[#FF2E63]"
+                          className="w-full p-2 border rounded-md bg-secondary placeholder-neutral text-accent outline-none border-neutral focus:border-primary"
                         />
                         <button
                           onClick={() => updateHandler(user._id)}
-                          className="ml-2 bg-blue-500 text-white p-3 rounded-md "
+                          className="ml-2 bg-primary text-secondary p-3 rounded-md "
                         >
                           <FaCheck />
                         </button>
@@ -122,11 +122,11 @@ const UserList = () => {
                           type="text"
                           value={editableUserEmail}
                           onChange={(e) => setEditableUserEmail(e.target.value)}
-                          className="w-full p-2 border rounded-md bg-[#0F0F10] placeholder-[#eaeaeab9] text-[#F6F6F6] outline-none border-[#57575b] focus:border-[#FF2E63]"
+                          className="w-full p-2 border rounded-md bg-secondary placeholder-neutral text-accent outline-none border-neutral focus:border-primary"
                         />
                         <button
                           onClick={() => updateHandler(user._id)}
-                          className="ml-2 bg-blue-500 text-white p-3 rounded-md"
+                          className="ml-2 bg-primary text-secondary p-3 rounded-md"
                         >
                           <FaCheck />
                         </button>
@@ -156,7 +156,7 @@ const UserList = () => {
                       <div className="flex">
                         <button
                           onClick={() => deleteHandler(user._id)}
-                          className="bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-4 rounded"
+                          className="bg-red-600 hover:bg-red-700 text-secondary font-bold py-2 px-4 rounded"
                         >
                           <FaTrash />
                         </button>
