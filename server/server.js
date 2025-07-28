@@ -3,6 +3,7 @@ const path = require("path");
 const express = require("express");
 const dotenv = require("dotenv");
 const cookieParser = require("cookie-parser");
+const cors = require("cors");
 
 // Utils
 const connectDB = require("./config/db.js");
@@ -22,6 +23,28 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
+
+const allowedOrigins = [
+  'http://localhost:5173', //local development
+  'https://week-8-capstone-sir-james-muritu.vercel.app' //production
+]
+
+// Middleware
+app.use(cors({
+  origin: (origin, callback) => {
+    // allow postman / curl requests
+    if (allowedOrigins.indexOf(origin) !== -1 || !origin) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
+  credentials: true,
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization']
+}));
+app.use(express.json());
+
 
 // app.get("/api/v1", (req, res) => {
 //   res.json({ message: "Welcome" });
